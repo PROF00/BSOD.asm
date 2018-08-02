@@ -6,7 +6,7 @@
 	bits 16
 	org 0x7c00
 		
-;Here i try to load code located at second two sectors
+;Here i try to load code.
 Load_Code:	
     ;---Setup segments
     xor ax, ax                  ; AX=0
@@ -15,7 +15,7 @@ Load_Code:
     mov ss, ax
     mov sp, 0x7c00              ; SS:SP= 0x0000:0x7c00 stack just below bootloader
 	
-	;---Read stage - (128kb)
+	;---Read stage - (128kb - 256 sectors)
 	mov bx, stage             ; ES: BX must point to the buffer
 	mov dh,0                    ; head number
 	mov ch,0                    ; track number
